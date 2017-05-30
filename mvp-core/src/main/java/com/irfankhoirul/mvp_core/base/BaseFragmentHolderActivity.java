@@ -5,6 +5,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.irfankhoirul.mvp_core.R;
 import com.irfankhoirul.mvp_core.R2;
@@ -15,6 +16,8 @@ import butterknife.OnClick;
 
 public abstract class BaseFragmentHolderActivity extends BaseActivity {
 
+    @BindView(R2.id.tvToolbarTitle)
+    protected TextView tvToolbarTitle;
     @BindView(R2.id.flFragmentContainer)
     protected FrameLayout flFragmentContainer;
     @BindView(R2.id.btOptionMenu)
@@ -37,6 +40,11 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
     @OnClick(R2.id.btBack)
     public void btBack() {
         onBackPressed();
+    }
+
+    @Override
+    public void setTitle(String title) {
+        tvToolbarTitle.setText(title);
     }
 
 }

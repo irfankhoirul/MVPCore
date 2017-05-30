@@ -4,18 +4,14 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.widget.TextView;
 
 import com.irfankhoirul.mvp_core.R;
-import com.irfankhoirul.mvp_core.R2;
-
-import butterknife.BindView;
 
 
 public abstract class BaseActivity extends FragmentActivity implements BaseFragment.FragmentListener {
 
-    @BindView(R2.id.tvToolbarTitle)
-    protected TextView tvToolbarTitle;
+//    @BindView(R2.id.tvToolbarTitle)
+//    protected TextView tvToolbarTitle;
 
     protected BaseFragment currentFragment;
 
@@ -44,8 +40,8 @@ public abstract class BaseActivity extends FragmentActivity implements BaseFragm
         this.currentFragment = fragment;
     }
 
-    @Override
-    public void setTitle(String title) {
-        tvToolbarTitle.setText(title);
-    }
+//    @Override
+//    public void setTitle(String title) {
+//        tvToolbarTitle.setText(title);
+//    }
 }
