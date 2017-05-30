@@ -23,12 +23,21 @@ import butterknife.Unbinder;
  * Created by Irfan Khoirul on 12/25/2016.
  */
 
-public abstract class BaseDialog<T extends Activity> extends DialogFragment {
+public abstract class BaseDialog<T extends Activity, U extends IBasePresenter> extends DialogFragment {
 
     protected Unbinder unbinder;
     protected Activity activity;
     protected AlertDialog loadingDialog;
     protected View fragmentView;
+    protected U mPresenter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (mPresenter == null) {
+            this.dismiss();
+        }
+    }
 
     @Nullable
     @Override
