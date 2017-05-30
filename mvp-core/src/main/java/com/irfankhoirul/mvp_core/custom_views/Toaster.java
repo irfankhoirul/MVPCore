@@ -9,9 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.irfankhoirul.apps.tatravel.R;
-import com.irfankhoirul.apps.tatravel.core.utils.ConstantUtils;
-import com.irfankhoirul.apps.tatravel.core.utils.DisplayMetricUtils;
+import com.irfankhoirul.mvp_core.R;
+import com.irfankhoirul.mvp_core.utils.DisplayMetricUtils;
+
+import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_ERROR;
+import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_INFO;
+import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_SUCCESS;
+import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_WARNING;
+
 
 /**
  * Created by Irfan Khoirul on 4/10/2017.
@@ -63,22 +68,22 @@ public class Toaster {
         text.setText(message);
         ImageView image = (ImageView) layout.findViewById(R.id.ivIcon);
         switch (type) {
-            case ConstantUtils.STATUS_INFO:
+            case STATUS_INFO:
                 if (imageSource == -1)
                     image.setImageResource(R.drawable.ic_info_black_24dp);
                 layout.setBackgroundResource(R.drawable.bg_toast_info);
                 break;
-            case ConstantUtils.STATUS_SUCCESS:
+            case STATUS_SUCCESS:
                 if (imageSource == -1)
                     image.setImageResource(R.drawable.ic_check_black_24dp);
                 layout.setBackgroundResource(R.drawable.bg_toast_success);
                 break;
-            case ConstantUtils.STATUS_WARNING:
+            case STATUS_WARNING:
                 if (imageSource == -1)
                     image.setImageResource(R.drawable.ic_warning_black_24dp);
                 layout.setBackgroundResource(R.drawable.bg_toast_warning);
                 break;
-            case ConstantUtils.STATUS_ERROR:
+            case STATUS_ERROR:
                 if (imageSource == -1)
                     image.setImageResource(R.drawable.ic_close_black_24dp);
                 layout.setBackgroundResource(R.drawable.bg_toast_error);
