@@ -1,6 +1,8 @@
 package com.irfankhoirul.mvp_core.custom_views;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.irfankhoirul.mvp_core.R;
-import com.irfankhoirul.mvp_core.utils.DisplayMetricUtils;
 
-import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_ERROR;
-import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_INFO;
-import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_SUCCESS;
-import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_WARNING;
+import static com.irfankhoirul.mvp_core.custom_views.ConstantStatus.STATUS_ERROR;
+import static com.irfankhoirul.mvp_core.custom_views.ConstantStatus.STATUS_INFO;
+import static com.irfankhoirul.mvp_core.custom_views.ConstantStatus.STATUS_SUCCESS;
+import static com.irfankhoirul.mvp_core.custom_views.ConstantStatus.STATUS_WARNING;
 
 
 /**
@@ -90,9 +91,15 @@ public class Toaster {
                 break;
         }
         Toast toast = new Toast(activity);
-        toast.setGravity(Gravity.BOTTOM, 0, DisplayMetricUtils.convertDpToPixel(32));
+        toast.setGravity(Gravity.BOTTOM, 0, convertDpToPixel(32));
         toast.setDuration(length);
         toast.setView(layout);
         toast.show();
+    }
+
+    private int convertDpToPixel(int dp) {
+        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+        float px = (float) dp * (metrics.densityDpi / 160f);
+        return Math.round(px);
     }
 }

@@ -8,10 +8,10 @@ import android.widget.TextView;
 
 import com.irfankhoirul.mvp_core.R;
 
-import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_ERROR;
-import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_INFO;
-import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_SUCCESS;
-import static com.irfankhoirul.mvp_core.utils.Constant.STATUS_WARNING;
+import static com.irfankhoirul.mvp_core.custom_views.ConstantStatus.STATUS_ERROR;
+import static com.irfankhoirul.mvp_core.custom_views.ConstantStatus.STATUS_INFO;
+import static com.irfankhoirul.mvp_core.custom_views.ConstantStatus.STATUS_SUCCESS;
+import static com.irfankhoirul.mvp_core.custom_views.ConstantStatus.STATUS_WARNING;
 
 /**
  * Created by Irfan Khoirul on 12/25/2016.
