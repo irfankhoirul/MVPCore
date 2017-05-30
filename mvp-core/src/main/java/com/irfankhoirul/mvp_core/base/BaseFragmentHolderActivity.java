@@ -42,9 +42,4 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
         onBackPressed();
     }
 
-    @Override
-    public void setTitle(String title) {
-        tvToolbarTitle.setText(title);
-    }
-
 }
