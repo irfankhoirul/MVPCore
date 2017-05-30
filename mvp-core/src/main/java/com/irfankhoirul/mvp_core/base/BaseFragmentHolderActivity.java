@@ -5,7 +5,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.irfankhoirul.mvp_core.R;
 import com.irfankhoirul.mvp_core.R2;
@@ -20,8 +19,6 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
     protected FrameLayout flFragmentContainer;
     @BindView(R2.id.btOptionMenu)
     protected ImageButton btOptionMenu;
-    @BindView(R2.id.tvToolbarTitle)
-    protected TextView tvToolbarTitle;
     @BindView(R2.id.ivIcon)
     protected ImageView ivIcon;
     @BindView(R2.id.btBack)
@@ -35,11 +32,6 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
     protected void initializeView() {
         setContentView(R.layout.activity_fragment_holder);
         ButterKnife.bind(this);
-    }
-
-    @Override
-    protected TextView getTvToolbarTitle() {
-        return tvToolbarTitle;
     }
 
     @OnClick(R2.id.btBack)

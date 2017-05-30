@@ -7,9 +7,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.widget.TextView;
 
 import com.irfankhoirul.mvp_core.R;
+import com.irfankhoirul.mvp_core.R2;
+
+import butterknife.BindView;
 
 
 public abstract class BaseActivity extends FragmentActivity implements BaseFragment.FragmentListener {
+
+    @BindView(R2.id.tvToolbarTitle)
+    protected TextView tvToolbarTitle;
 
     protected BaseFragment currentFragment;
 
@@ -23,8 +29,6 @@ public abstract class BaseActivity extends FragmentActivity implements BaseFragm
     protected abstract void initializeFragment();
 
     protected abstract void initializeView();
-
-    protected abstract TextView getTvToolbarTitle();
 
     protected void setCurrentFragment(BaseFragment fragment, boolean addToBackStack) {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -42,6 +46,6 @@ public abstract class BaseActivity extends FragmentActivity implements BaseFragm
 
     @Override
     public void setTitle(String title) {
-        getTvToolbarTitle().setText(title);
+        tvToolbarTitle.setText(title);
     }
 }
