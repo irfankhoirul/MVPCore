@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.irfankhoirul.mvp_core.R;
 
-
 public abstract class BaseActivity extends FragmentActivity implements BaseFragment.FragmentListener {
 
     protected TextView tvToolbarTitle;
