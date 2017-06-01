@@ -64,12 +64,17 @@ public abstract class BaseRemoteRepository<T> {
         call.enqueue(new Callback<DataResult<T>>() {
             @Override
             public void onResponse(Call<DataResult<T>> call, Response<DataResult<T>> response) {
-                listener.onSuccess(response.body());
+                if (response.body() == null) {
+                    listener.onFailure(new Throwable());
+                    Log.e("Fatal Error", "JSON Mal-formatted");
+                } else {
+                    listener.onSuccess(response.body());
+                }
             }
 
             @Override
             public void onFailure(Call<DataResult<T>> call, Throwable t) {
-                Log.v("Error", t.getMessage());
+                t.printStackTrace();
                 listener.onFailure(t);
             }
         });
