@@ -3,7 +3,7 @@ package com.irfankhoirul.mvp_core.base;
 import android.util.Log;
 
 import com.irfankhoirul.mvp_core.data.DataResult;
-import com.irfankhoirul.mvp_core.data.IRequestResponseListener;
+import com.irfankhoirul.mvp_core.data.RequestResponseListener;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @since 1.0
  */
 
-public abstract class BaseRemoteRepository<T> {
+public abstract class BaseRemoteRepository<T extends BasePojo> {
 
     protected Retrofit retrofit;
     protected T endPoint;
@@ -53,14 +53,14 @@ public abstract class BaseRemoteRepository<T> {
         setEndPoint();
     }
 
-    public abstract String setBaseUrl();
+    protected abstract String setBaseUrl();
 
-    public abstract void setEndPoint();
+    protected abstract void setEndPoint();
 
-    public abstract boolean enableLogging();
+    protected abstract boolean enableLogging();
 
     @SuppressWarnings("unchecked")
-    protected void execute(Call call, final IRequestResponseListener<T> listener) {
+    protected void execute(Call call, final RequestResponseListener<T> listener) {
         call.enqueue(new Callback<DataResult<T>>() {
             @Override
             public void onResponse(Call<DataResult<T>> call, Response<DataResult<T>> response) {

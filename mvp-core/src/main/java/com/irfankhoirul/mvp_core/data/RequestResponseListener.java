@@ -1,5 +1,7 @@
 package com.irfankhoirul.mvp_core.data;
 
+import com.irfankhoirul.mvp_core.base.BasePojo;
+
 /**
  * Merupakan interface yang berfungsi sebagai listener hasil query menggunakan retrofit
  *
@@ -8,7 +10,7 @@ package com.irfankhoirul.mvp_core.data;
  * @since 1.0
  */
 
-public interface IRequestResponseListener<T> {
+public interface RequestResponseListener<T extends BasePojo> {
     void onSuccess(DataResult<T> result);
 
     void onFailure(Throwable throwable);

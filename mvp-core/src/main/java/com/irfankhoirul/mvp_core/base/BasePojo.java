@@ -14,7 +14,7 @@ import org.parceler.Parcel;
  */
 
 @Parcel
-public class BaseModel {
+public class BasePojo {
     @SerializedName("id")
     @Expose
     protected int id;

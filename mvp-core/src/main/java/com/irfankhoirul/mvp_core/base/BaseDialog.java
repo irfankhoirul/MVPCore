@@ -10,7 +10,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.irfankhoirul.mvp_core.R;
@@ -23,10 +22,10 @@ import butterknife.Unbinder;
  * Created by Irfan Khoirul on 12/25/2016.
  */
 
-public abstract class BaseDialog<T extends Activity, U extends IBasePresenter> extends DialogFragment {
+public abstract class BaseDialog<T extends Activity, U extends BasePresenter> extends DialogFragment {
 
     protected Unbinder unbinder;
-    protected Activity activity;
+    protected T activity;
     protected AlertDialog loadingDialog;
     protected View fragmentView;
     protected U mPresenter;
@@ -37,12 +36,6 @@ public abstract class BaseDialog<T extends Activity, U extends IBasePresenter> e
         if (mPresenter == null) {
             this.dismiss();
         }
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @SuppressWarnings("unchecked")

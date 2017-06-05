@@ -28,10 +28,10 @@ import butterknife.Unbinder;
  * @since 1.0
  */
 
-public abstract class BaseFragment<T extends FragmentActivity, U extends IBasePresenter> extends Fragment {
+public abstract class BaseFragment<T extends FragmentActivity, U extends BasePresenter> extends Fragment {
 
     protected String title;
-    protected FragmentActivity activity;
+    protected T activity;
     protected Unbinder unbinder;
     protected AlertDialog loadingDialog;
     protected View fragmentView;
@@ -41,11 +41,11 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends IBasePr
 
     protected abstract void setTitle();
 
-    public String getTitle() {
+    protected String getTitle() {
         return title;
     }
 
-    public boolean isLoading() {
+    protected boolean isLoading() {
         return loading;
     }
 
@@ -144,10 +144,6 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends IBasePr
                 .setTitle(title)
                 .setMessage(message);
         return alertDialogBuilder;
-    }
-
-    public interface FragmentListener {
-        void setTitle(String title);
     }
 
 }

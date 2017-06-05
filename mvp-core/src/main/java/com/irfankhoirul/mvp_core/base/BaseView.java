@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
  * @since 1.0 (7 November 2016)
  */
 
-public interface IBaseView<T> {
+public interface BaseView<T> {
     void setPresenter(T presenter);
 
     void setLoadingDialog(boolean isLoading, @Nullable String message);

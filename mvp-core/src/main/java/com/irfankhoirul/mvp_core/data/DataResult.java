@@ -1,5 +1,7 @@
 package com.irfankhoirul.mvp_core.data;
 
+import com.irfankhoirul.mvp_core.base.BasePojo;
+
 import java.util.List;
 
 /**
@@ -10,7 +12,7 @@ import java.util.List;
  * @since 1.0
  */
 
-public class DataResult<T> {
+public class DataResult<T extends BasePojo> {
     /**
      * Kode hasil query
      */

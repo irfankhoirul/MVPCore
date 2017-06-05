@@ -8,6 +8,6 @@ package com.irfankhoirul.mvp_core.base;
  * @since 1.0 (15 November 2016)
  */
 
-public interface IBasePresenter {
+public interface BasePresenter {
     void start();
 }
