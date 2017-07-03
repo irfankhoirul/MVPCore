@@ -90,16 +90,13 @@ public class Toaster {
                 layout.setBackgroundResource(R.drawable.bg_toast_error);
                 break;
         }
+        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+        float px = 32.00f * (metrics.densityDpi / 160f);
+
         Toast toast = new Toast(activity);
-        toast.setGravity(Gravity.BOTTOM, 0, convertDpToPixel(32));
+        toast.setGravity(Gravity.BOTTOM, 0, Math.round(px));
         toast.setDuration(length);
         toast.setView(layout);
         toast.show();
-    }
-
-    private int convertDpToPixel(int dp) {
-        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
-        float px = (float) dp * (metrics.densityDpi / 160f);
-        return Math.round(px);
     }
 }

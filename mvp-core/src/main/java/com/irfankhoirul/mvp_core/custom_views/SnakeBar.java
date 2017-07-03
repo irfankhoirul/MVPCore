@@ -1,6 +1,6 @@
 package com.irfankhoirul.mvp_core.custom_views;
 
-import android.content.Context;
+import android.app.Activity;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
@@ -25,15 +25,15 @@ public class SnakeBar {
     private int length;
     private View.OnClickListener listener;
     private int type;
-    private Context context;
+    private Activity activity;
 
     public SnakeBar() {
 
     }
 
-    public SnakeBar builder(Context context) {
+    public SnakeBar builder(Activity activity) {
         instance = new SnakeBar();
-        instance.context = context;
+        instance.activity = activity;
         return instance;
     }
 
@@ -83,26 +83,26 @@ public class SnakeBar {
         switch (type) {
             case STATUS_INFO:
                 sbView.setBackgroundColor(ContextCompat.getColor(sbView.getContext(), R.color.light_blue_100));
-                textView.setTextColor(ContextCompat.getColor(context, R.color.light_blue_700));
+                textView.setTextColor(ContextCompat.getColor(activity, R.color.light_blue_700));
                 break;
 
             case STATUS_SUCCESS:
                 sbView.setBackgroundColor(ContextCompat.getColor(sbView.getContext(), R.color.light_green_100));
-                textView.setTextColor(ContextCompat.getColor(context, R.color.light_green_700));
+                textView.setTextColor(ContextCompat.getColor(activity, R.color.light_green_700));
                 break;
 
             case STATUS_WARNING:
                 sbView.setBackgroundColor(ContextCompat.getColor(sbView.getContext(), R.color.orange_100));
-                textView.setTextColor(ContextCompat.getColor(context, R.color.orange_700));
+                textView.setTextColor(ContextCompat.getColor(activity, R.color.orange_700));
                 break;
 
             case STATUS_ERROR:
                 sbView.setBackgroundColor(ContextCompat.getColor(sbView.getContext(), R.color.red_100));
-                textView.setTextColor(ContextCompat.getColor(context, R.color.red_700));
+                textView.setTextColor(ContextCompat.getColor(activity, R.color.red_700));
                 break;
         }
 
-        snackbar.setActionTextColor(ContextCompat.getColor(context, R.color.pure_white));
+        snackbar.setActionTextColor(ContextCompat.getColor(activity, R.color.pure_white));
         snackbar.show();
     }
 
