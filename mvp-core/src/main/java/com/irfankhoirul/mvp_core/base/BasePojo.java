@@ -36,6 +36,9 @@ public class BasePojo implements Parcelable {
     @Expose
     protected String updatedAt;
 
+    public BasePojo() {
+    }
+
     protected BasePojo(Parcel in) {
         id = in.readInt();
         createdAt = in.readString();
