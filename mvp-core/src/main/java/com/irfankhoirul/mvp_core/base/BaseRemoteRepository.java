@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @since 1.0
  */
 
-public abstract class BaseRemoteRepository<V, T extends BasePojo> {
+public abstract class BaseRemoteRepository<V> {
 
     protected Retrofit retrofit;
     protected V endPoint;
@@ -60,7 +60,7 @@ public abstract class BaseRemoteRepository<V, T extends BasePojo> {
     protected abstract boolean enableLogging();
 
     @SuppressWarnings("unchecked")
-    protected void execute(Call call, final RequestResponseListener<T> listener) {
+    protected <T extends BasePojo> void execute(Call call, final RequestResponseListener<T> listener) {
         call.enqueue(new Callback<DataResult<T>>() {
             @Override
             public void onResponse(Call<DataResult<T>> call, Response<DataResult<T>> response) {
