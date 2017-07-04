@@ -26,10 +26,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @since 1.0
  */
 
-public abstract class BaseRemoteRepository<T extends BasePojo> {
+public abstract class BaseRemoteRepository<V, T extends BasePojo> {
 
     protected Retrofit retrofit;
-    protected T endPoint;
+    protected V endPoint;
 
     protected BaseRemoteRepository() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
