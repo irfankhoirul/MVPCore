@@ -1,7 +1,6 @@
 package com.irfankhoirul.mvp_core.base;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -49,18 +48,18 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
         return loading;
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (mPresenter == null) {
-            Intent intent = new Intent(activity, activity.getClass());
-            if (getArguments() != null) {
-                intent.putExtras(getArguments());
-            }
-            startActivity(intent);
-            activity.finish();
-        }
-    }
+//    @Override
+//    public void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        if (mPresenter == null) {
+//            Intent intent = new Intent(activity, activity.getClass());
+//            if (getArguments() != null) {
+//                intent.putExtras(getArguments());
+//            }
+//            startActivity(intent);
+//            activity.finish();
+//        }
+//    }
 
     @Nullable
     @Override
